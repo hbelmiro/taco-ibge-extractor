@@ -1,6 +1,8 @@
 package br.com.helberbelmiro.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 public class MacroNutrients {
 
@@ -40,6 +42,38 @@ public class MacroNutrients {
 
     public BigDecimal getDietaryFibre() {
         return dietaryFibre;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MacroNutrients that = (MacroNutrients) o;
+        return getEnergy().equals(that.getEnergy()) &&
+                getProtein().equals(that.getProtein()) &&
+                getLipids().equals(that.getLipids()) &&
+                getCarbs().equals(that.getCarbs()) &&
+                getDietaryFibre().equals(that.getDietaryFibre());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getEnergy(), getProtein(), getLipids(), getCarbs(), getDietaryFibre());
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", MacroNutrients.class.getSimpleName() + "[", "]")
+                .add("energy=" + energy)
+                .add("protein=" + protein)
+                .add("lipids=" + lipids)
+                .add("carbs=" + carbs)
+                .add("dietaryFibre=" + dietaryFibre)
+                .toString();
     }
 
     public static class Builder {

@@ -10,6 +10,8 @@ import java.util.List;
 @QuarkusTest
 class FoodLineFilterTest {
 
+    private static final String NAO_SE_APLICA = "Não se aplica";
+
     @Inject
     FoodLineFilter foodLineFilter;
 

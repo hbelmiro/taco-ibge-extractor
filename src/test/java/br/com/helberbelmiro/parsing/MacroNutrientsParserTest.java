@@ -16,6 +16,17 @@ class MacroNutrientsParserTest {
     MacroNutrientsParser macroNutrientsParser;
 
     @Test
+    void getMacroNutrientsStartIndex() {
+        final String line = "6600301 Castanha portuguesa 99 Não se aplica 131,00 2,00 1,38 27,76 4,14";
+
+        final int macroNutrientsStartIndex = this.macroNutrientsParser.getMacroNutrientsStartIndex(line);
+
+        final int expected = 45;
+
+        assertEquals(expected, macroNutrientsStartIndex);
+    }
+
+    @Test
     void parse() {
         final String line = "6600301 Castanha portuguesa 99 Não se aplica 131,00 2,00 1,38 27,76 4,14";
 

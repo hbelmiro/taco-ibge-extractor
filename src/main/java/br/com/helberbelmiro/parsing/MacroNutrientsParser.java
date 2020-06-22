@@ -11,6 +11,23 @@ import java.util.List;
 @ApplicationScoped
 public class MacroNutrientsParser {
 
+    public int getMacroNutrientsStartIndex(String line) {
+        final List<String> splittedLine = Arrays.asList(line.split(" "));
+
+        Collections.reverse(splittedLine);
+
+        final String macronutrientsString = String.join(
+                " ",
+                splittedLine.get(4),
+                splittedLine.get(3),
+                splittedLine.get(2),
+                splittedLine.get(1),
+                splittedLine.get(0)
+        );
+
+        return line.indexOf(macronutrientsString);
+    }
+
     public MacroNutrients parse(String line) {
         final List<String> splittedLine = Arrays.asList(line.split(" "));
 

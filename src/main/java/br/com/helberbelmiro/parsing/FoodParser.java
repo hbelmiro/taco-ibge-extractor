@@ -15,6 +15,10 @@ public class FoodParser {
     @Inject
     private PreparationParser preparationParser;
 
+    public boolean isFoodLine(String line) {
+        return line.matches("^[0-9]{7}\\s.*");
+    }
+
     public Food parse(String line) {
         if (line.matches("^[0-9]{7}\\s.*")) {
             return Food.builder()

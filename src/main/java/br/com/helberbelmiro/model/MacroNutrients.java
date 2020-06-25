@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-public class MacroNutrients {
+public final class MacroNutrients {
 
     private final BigDecimal energy;
 

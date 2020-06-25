@@ -1,6 +1,9 @@
 package br.com.helberbelmiro.model;
 
-public class Food {
+import java.util.Objects;
+import java.util.StringJoiner;
+
+public final class Food {
 
     private final Integer code;
 
@@ -31,6 +34,32 @@ public class Food {
 
     public MacroNutrients getMacroNutrients() {
         return macroNutrients;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Food.class.getSimpleName() + "[", "]")
+                .add("code=" + code)
+                .add("description='" + description + "'")
+                .add("preparation=" + preparation)
+                .add("macroNutrients=" + macroNutrients)
+                .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Food food = (Food) o;
+        return getCode().equals(food.getCode()) &&
+                getDescription().equals(food.getDescription()) &&
+                getPreparation().equals(food.getPreparation()) &&
+                getMacroNutrients().equals(food.getMacroNutrients());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCode(), getDescription(), getPreparation(), getMacroNutrients());
     }
 
     public static Builder builder() {

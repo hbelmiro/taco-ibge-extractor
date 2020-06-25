@@ -1,5 +1,15 @@
 # taco-ibge-extractor project
 
+This project parses information from "Tabelas de Composição Nutricional dos Alimentos Consumidos no Brasil".
+
+IBGE (Brazilian Institute of Geography and Statistics) presents in this publication the Tables of Nutritional 
+Composition of Food Consumed in Brazil, which define the components for each 100 grams of edible parts of food and 
+preparations - energy, macronutrients and fiber; fats and sugar; minerals; and vitamins – as well as the reference(s) 
+adopted to obtain the respective composition. 
+
+Tabelas de Composição Nutricional dos Alimentos Consumidos no Brasil is available at:
+https://biblioteca.ibge.gov.br/visualizacao/livros/liv50002.pdf
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .

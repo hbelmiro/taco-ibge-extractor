@@ -4,9 +4,7 @@ import br.com.helberbelmiro.model.MacroNutrients;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @ApplicationScoped
 public class MacroNutrientsParser {

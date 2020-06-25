@@ -6,6 +6,9 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.text.MessageFormat;
 import java.text.ParseException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,6 +17,10 @@ public class PreparationParser {
 
     @Inject
     private MacroNutrientsParser macroNutrientsParser;
+
+    public int getPreparationStartIndex(String line) {
+        return line.indexOf(extractPreparationText(line));
+    }
 
     private String extractPreparationText(String line) {
         final int macroNutrientsStartIndex = macroNutrientsParser.getMacroNutrientsStartIndex(line);
@@ -26,7 +33,7 @@ public class PreparationParser {
         final Matcher matcher = pattern.matcher(reversedlineWithoutMacroNutrients);
 
         if (matcher.find()) {
-            return new StringBuilder(matcher.group()).reverse().toString();
+            return new StringBuilder(matcher.group()).reverse().toString().trim();
         } else {
             throw new IllegalArgumentException(MessageFormat.format("A Preparation could not be found in [{0}]", line));
         }

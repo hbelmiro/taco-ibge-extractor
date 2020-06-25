@@ -17,12 +17,42 @@ class PreparationParserTest {
     @Inject
     PreparationParser preparationParser;
 
+    private static Stream<Arguments> getPreparationStartIndexSource() {
+        return Stream.of(
+                Arguments.of(
+                        "6600301 Castanha portuguesa 99 Não se aplica 131,00 2,00 1,38 27,76 4,14",
+                        28
+                ),
+                Arguments.of(
+                        "6600301 Castanha 55 portuguesa 99 Não se aplica 131,00 2,00 1,38 27,76 4,14",
+                        31
+                ),
+                Arguments.of(
+                        "6600301 Castanha 22 vermelha 55 portuguesa 99 Não se aplica 131,00 2,00 1,38 27,76 4,14",
+                        43
+                ),
+                Arguments.of(
+                        "6600301 Castanha 22 vermelha 55 portuguesa 6 Copo 131,00 2,00 1,38 27,76 4,14",
+                        43
+                ),
+                Arguments.of(
+                        "6600301 Castanha 22 vermelha 55 portuguesa 8 Colher de Sopa 131,00 2,00 1,38 27,76 4,14",
+                        43
+                )
+        );    }
+
     @ParameterizedTest
     @MethodSource("parseSource")
     void parse(String line, Preparation expected) {
         final Preparation preparation = this.preparationParser.parse(line);
 
         assertEquals(expected, preparation);
+    }
+
+    @ParameterizedTest
+    @MethodSource("getPreparationStartIndexSource")
+    void getPreparationStartIndex(String line, int expectedIndex) {
+        assertEquals(expectedIndex, this.preparationParser.getPreparationStartIndex(line));
     }
 
     private static Stream<Arguments> parseSource() {

@@ -28,8 +28,12 @@ public final class Preparation {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Preparation that = (Preparation) o;
         return getCode().equals(that.getCode()) &&
                 getDescription().equals(that.getDescription());
@@ -42,9 +46,9 @@ public final class Preparation {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", Preparation.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", Preparation.class.getSimpleName() + '[', "]")
                 .add("code=" + code)
-                .add("description='" + description + "'")
+                .add("description='" + description + '\'')
                 .toString();
     }
 

@@ -44,7 +44,7 @@ class PreparationParserTest {
     @ParameterizedTest
     @MethodSource("parseSource")
     void parse(String line, Preparation expected) {
-        final Preparation preparation = this.preparationParser.parse(line);
+        final Preparation preparation = preparationParser.parse(line);
 
         assertEquals(expected, preparation);
     }
@@ -52,7 +52,7 @@ class PreparationParserTest {
     @ParameterizedTest
     @MethodSource("getPreparationStartIndexSource")
     void getPreparationStartIndex(String line, int expectedIndex) {
-        assertEquals(expectedIndex, this.preparationParser.getPreparationStartIndex(line));
+        assertEquals(expectedIndex, preparationParser.getPreparationStartIndex(line));
     }
 
     private static Stream<Arguments> parseSource() {

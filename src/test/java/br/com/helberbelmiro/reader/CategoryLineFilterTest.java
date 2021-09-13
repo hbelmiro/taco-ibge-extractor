@@ -36,7 +36,7 @@ class CategoryLineFilterTest {
                 ""
         );
 
-        assertThat(this.categoryLineFilter.filter(linesToFilter))
+        assertThat(categoryLineFilter.filter(linesToFilter))
                 .containsExactly(
                         "Cocos, castanhas e nozes",
                         "Hortaliças folhosas, frutosas e outras"

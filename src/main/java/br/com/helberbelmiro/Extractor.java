@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-public class Extractor {
+public final class Extractor {
 
     private static final File FILE = new File("src/main/resources/META-INF/resources/taco/liv50002.pdf");
 

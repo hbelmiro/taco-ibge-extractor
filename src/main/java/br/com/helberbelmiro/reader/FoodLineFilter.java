@@ -15,7 +15,7 @@ public class FoodLineFilter {
 
     public List<String> filter(List<String> lines) {
         return lines.stream()
-                    .filter(this.foodParser::isFoodLine)
+                    .filter(foodParser::isFoodLine)
                     .collect(Collectors.toUnmodifiableList());
     }
 

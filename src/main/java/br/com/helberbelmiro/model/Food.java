@@ -14,10 +14,10 @@ public final class Food {
     private final MacroNutrients macroNutrients;
 
     private Food(Builder builder) {
-        this.code = builder.code;
-        this.description = builder.description;
-        this.preparation = builder.preparation;
-        this.macroNutrients = builder.macroNutrients;
+        code = builder.code;
+        description = builder.description;
+        preparation = builder.preparation;
+        macroNutrients = builder.macroNutrients;
     }
 
     public Integer getCode() {
@@ -38,9 +38,9 @@ public final class Food {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", Food.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", Food.class.getSimpleName() + '[', "]")
                 .add("code=" + code)
-                .add("description='" + description + "'")
+                .add("description='" + description + '\'')
                 .add("preparation=" + preparation)
                 .add("macroNutrients=" + macroNutrients)
                 .toString();
@@ -48,8 +48,12 @@ public final class Food {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Food food = (Food) o;
         return getCode().equals(food.getCode()) &&
                 getDescription().equals(food.getDescription()) &&

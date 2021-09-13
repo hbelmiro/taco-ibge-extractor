@@ -21,7 +21,7 @@ public class CategoryLineFilter {
 
         for (String line : lines) {
             if (!line.isBlank()) {
-                if (this.foodParser.isFoodLine(line)) {
+                if (foodParser.isFoodLine(line)) {
                     lastFoodLine = line;
                 } else {
                     if (lastFoodLine != null) {

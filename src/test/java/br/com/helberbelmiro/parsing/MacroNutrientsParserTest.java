@@ -19,7 +19,7 @@ class MacroNutrientsParserTest {
     void getMacroNutrientsStartIndex() {
         final String line = "6600301 Castanha portuguesa 99 Não se aplica 131,00 2,00 1,38 27,76 4,14";
 
-        final int macroNutrientsStartIndex = this.macroNutrientsParser.getMacroNutrientsStartIndex(line);
+        final int macroNutrientsStartIndex = macroNutrientsParser.getMacroNutrientsStartIndex(line);
 
         final int expected = 45;
 
@@ -30,7 +30,7 @@ class MacroNutrientsParserTest {
     void parse() {
         final String line = "6600301 Castanha portuguesa 99 Não se aplica 131,00 2,00 1,38 27,76 4,14";
 
-        final MacroNutrients macroNutrients = this.macroNutrientsParser.parse(line);
+        final MacroNutrients macroNutrients = macroNutrientsParser.parse(line);
 
         final MacroNutrients expected = MacroNutrients.builder()
                                                       .withEnergy(new BigDecimal("131.00"))

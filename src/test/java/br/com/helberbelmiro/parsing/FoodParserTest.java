@@ -46,7 +46,7 @@ class FoodParserTest {
     @ParameterizedTest
     @MethodSource("parseSource")
     void parse(String line, Food expectedFood) {
-        assertEquals(expectedFood, this.foodParser.parse(line));
+        assertEquals(expectedFood, foodParser.parse(line));
     }
 
 }

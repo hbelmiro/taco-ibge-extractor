@@ -31,7 +31,7 @@ class FoodLineFilterTest {
                 "6600601 Avelã 99 Não se aplica 628,00 14,95 60,75 16,70 9,70"
         );
 
-        final List<String> filteredList = this.foodLineFilter.filter(linesToFilter);
+        final List<String> filteredList = foodLineFilter.filter(linesToFilter);
 
         Assertions.assertEquals(5, filteredList.size());
     }

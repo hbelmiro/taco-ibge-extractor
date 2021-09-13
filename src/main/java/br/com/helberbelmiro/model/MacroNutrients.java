@@ -17,11 +17,11 @@ public final class MacroNutrients {
     private final BigDecimal dietaryFibre;
 
     public MacroNutrients(Builder builder) {
-        this.energy = builder.energy;
-        this.protein = builder.protein;
-        this.lipids = builder.lipids;
-        this.carbs = builder.carbs;
-        this.dietaryFibre = builder.dietaryFibre;
+        energy = builder.energy;
+        protein = builder.protein;
+        lipids = builder.lipids;
+        carbs = builder.carbs;
+        dietaryFibre = builder.dietaryFibre;
     }
 
     public BigDecimal getEnergy() {
@@ -50,14 +50,18 @@ public final class MacroNutrients {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         MacroNutrients that = (MacroNutrients) o;
-        return getEnergy().equals(that.getEnergy()) &&
-                getProtein().equals(that.getProtein()) &&
-                getLipids().equals(that.getLipids()) &&
-                getCarbs().equals(that.getCarbs()) &&
-                getDietaryFibre().equals(that.getDietaryFibre());
+        return getEnergy().compareTo(that.getEnergy()) == 0 &&
+                getProtein().compareTo(that.getProtein()) == 0 &&
+                getLipids().compareTo(that.getLipids()) == 0 &&
+                getCarbs().compareTo(that.getCarbs()) == 0 &&
+                getDietaryFibre().compareTo(that.getDietaryFibre()) == 0;
     }
 
     @Override
@@ -67,7 +71,7 @@ public final class MacroNutrients {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", MacroNutrients.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", MacroNutrients.class.getSimpleName() + '[', "]")
                 .add("energy=" + energy)
                 .add("protein=" + protein)
                 .add("lipids=" + lipids)
